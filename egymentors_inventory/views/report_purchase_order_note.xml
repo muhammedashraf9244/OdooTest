@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_purchase_order_note_doc">
+        <t t-call="web.external_layout">
+            <!--            <t t-set="o" t-value="o.with_context(lang=lang)" />-->
+            <div class="page text-right" style="text-align: right !important;direction:rtl;font-size:16px;">
+                <div class="row" >
+                    <div class="col-4"/>
+                    <div class="col-4 text-center">
+                        <h5 style="width:100%;block:">
+                            <strong>مذكره شراء رقم(
+                                <span t-if="o.name" t-field="o.name"/>
+                                )</strong>
+                        </h5>
+                    </div>
+                </div>
+                <br/>
+                <div class="row" >
+                    <p style="width:100%;block">
+                        <b>السيد المهندس/</b>
+                        <!-- رئيس الشئون الفنيه-->
+                    </p>
+                </div>
+                <div class="row" >
+                    <div class="col-4"/>
+                    <div class="col-4 text-center">
+                        <b>
+                            تحيه طيبه وبعد,,,
+                        </b>
+                    </div>
+                </div>
+                <br/>
+                <div class="row" >
+                    <p style="width:100%;block">
+                        <b>بالإحاله إلى طلب شراء رقم (</b>
+                        <span t-if="o.request_id" t-esc="o.request_id.name"/>
+                        <span t-if="not o.request_id" style="color:white">----------------</span>
+                        <b> ) بتاريخ</b>
+                        <span t-if="o.request_id" t-esc="o.request_id.date_request"/>
+                        <span t-if="not o.request_id" style="color:white">----------------------------</span>
+                        <b>من </b>
+                        <span t-if="o.request_id and o.request_id.req_dep_id" t-esc="o.request_id.req_dep_id.name"/>
+
+                    </p>
+                </div>
+                <div class="row" >
+                    <p style="width:100%;block">
+                        <b>بـخـصـوص/</b>
+                    </p>
+                </div>
+                <div class="row">
+                    <p style="width:100%;block"><b>
+                        نحيط علم سيادتكم علماً بأنه قامت اللجنه المشكله من كلا من:
+                    </b></p>
+                </div>
+                <div class="row">
+                    <p style="width:100%;block">
+                        <b>1-</b>
+                        <b style="color:white">--------------------------------------------------------------</b>
+                        <b>إداره المشتريات</b>
+                    </p>
+                </div>
+                <div class="row">
+                    <p style="width:100%;block">
+                        <b>2-</b>
+                        <b style="color:white">--------------------------------------------------------------</b>
+                        <b>المندوب المالي</b>
+                    </p>
+                </div>
+                <div class="row">
+                    <p style="width:100%;block">
+                        <b>3-</b>
+                        <b style="color:white">--------------------------------------------------------------</b>
+                        <b>الشئون فنيه</b>
+                    </p>
+                </div>
+                <div class="row">
+                    <p style="width:100%;block">
+                        <b>
+                            وقامت اللجنه بالبحث فى السوق المحلى وعمل عروض اسعار من شركه
+                            <span t-if="o.partner_id" t-esc="o.partner_id.name"/>
+
+                        </b>
+                    </p>
+                </div>
+                <div class="row">
+                    <t t-set="count" t-value="1"/>
+                    <table class="table table-sm" style="width:60%">
+                        <tr t-foreach="o.order_line" t-as="line">
+                            <th style="border:0px"><span t-esc="count"/>- </th>
+                            <th style="border:0px"><span t-if="line.product_id" t-esc="line.product_id.name"/></th>
+                            <th style="border:0px"> = </th>
+                            <td style="border:0px"> <span t-esc="line.product_qty"/> </td>
+                            <th style="border:0px"> x </th>
+                            <td style="border:0px"> <span t-esc="line.price_unit"
+                                                          t-options='{"widget": "monetary", "display_currency": o.currency_id}'/> </td>
+                            <th style="border:0px"> = </th>
+                            <td style="border:0px"> <span t-esc="line.price_subtotal"
+                                                          t-options='{"widget": "monetary", "display_currency": o.currency_id}'/> </td>
+                            <t t-set="count" t-value="count+1"/>
+                        </tr>
+                    </table>
+                </div>
+                <!--<div class="row" t-foreach="o.order_line" t-as="line">-->
+                <!--    <p style="width:100%;block">-->
+                <!--        <b style="font-size:18px;"><span t-esc="count"/>- </b>-->
+                <!--        <span t-if="o.product_id" t-esc="o.product_id.name"/>-->
+                <!--        <b style="font-size:18px;"> = </b>-->
+                <!--        <span t-if="line" t-esc="line.product_qty"/>-->
+                <!--        <b style="font-size:18px;"> x </b>-->
+                <!--        <span t-if="line" t-esc="line.price_unit"-->
+                <!--              t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>-->
+                <!--        <b style="font-size:18px;"> = </b>-->
+                <!--        <span t-if="line" t-esc="line.price_subtotal"-->
+                <!--              t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>-->
+                <!--    </p>-->
+                <!--    <t t-set="count" t-value="count+1"/>-->
+                <!--</div>-->
+                <div class="row">
+                    <table class="table table-sm" style="width:60%">
+                        <tr t-foreach="o.amount_by_group" t-as="amount_by_group">
+                            <th style="border:0px">ضريبه القيمه المضافه </th>
+                            <th style="border:0px"> = </th>
+                            <td style="border:0px"> <span t-esc="amount_by_group[0]"/> </td>
+<!--                            <th style="border:0px"> x </th>-->
+<!--                            <td style="border:0px"> <span t-esc="amount_by_group[4]"/> </td>-->
+                            <th style="border:0px"> = </th>
+                            <td style="border:0px"> <span t-esc="amount_by_group[3]"/> </td>
+<!--                            <td style="border:0px"> <span t-esc="amount_by_group"/> </td>-->
+                        </tr>
+                    </table>
+                    <!--    <p style="width:100%;block">-->
+                    <!--        <b>ضريبه القيمه المضافه </b>-->
+                    <!--        <b style="font-size:18px;"> = </b>-->
+                    <!--        <t t-foreach="o.amount_by_group" t-as="amount_by_group">-->
+                    <!--            <span t-esc="amount_by_group[0]"/>-->
+                    <!--            <b style="font-size:18px;"> x </b>-->
+                    <!--            <span t-esc="amount_by_group[4]"/>-->
+                    <!--            <b style="font-size:18px;"> = </b>-->
+                    <!--            <span t-esc="amount_by_group[3]"/>-->
+                    <!--            &lt;!&ndash;<b t-esc="amount_by_group" style="color:red"/>&ndash;&gt;-->
+                    <!--        </t>-->
+                    <!--        <br/>-->
+                    <!--    </p>-->
+                </div>
+                <div class="row">
+                    <table class="table table-sm" style="width:60%">
+                        <tr>
+                            <th style="border:0px">ليصبح إجمالى السعر بعد الضريبه</th>
+                            <th style="border:0px"> = </th>
+                            <td style="border:0px"> <span t-esc="o.amount_untaxed"/> </td>
+                            <th style="border:0px"> + </th>
+                            <td style="border:0px"> <span t-esc="o.amount_tax"/> </td>
+                            <th style="border:0px"> = </th>
+                            <td style="border:0px"> <span t-esc="o.amount_total"
+                                                          t-options='{"widget": "monetary", "display_currency": o.currency_id}'/></td>
+                        </tr>
+                    </table>
+
+                    <!--    <p style="width:100%;block">-->
+                    <!--        <b>ليصبح إجمالى السعر بعد الضريبه =  </b>-->
+                    <!--        <span t-esc="o.amount_untaxed"/>-->
+                    <!--        <span> + </span>-->
+                    <!--        <span t-esc="o.amount_tax"/>-->
+                    <!--        <span> = </span>-->
+                    <!--        <b t-esc="o.amount_tax"-->
+                    <!--           t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>-->
+                    <!--    </p>-->
+                </div>
+                <div class="row">
+                    <p style="width:100%;block">
+                        <span t-esc="o.amount_to_text()"/>
+                    </p>
+                </div>
+                <!--<div class="row">-->
+                <!--    <p style="width:100%;block">-->
+                <!--        <b>1-</b>-->
+                <!--        <b style="color:white">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;</b>-->
+                <!--    </p>-->
+                <!--</div>-->
+                <!--<div class="row">-->
+                <!--    <p style="width:100%;block">-->
+                <!--        <b>2-</b>-->
+                <!--        <b style="color:white">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;</b>-->
+                <!--    </p>-->
+                <!--</div>-->
+                <!--<div class="row">-->
+                <!--    <p style="width:100%;block">-->
+                <!--        <b>3-</b>-->
+                <!--        <b style="color:white">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;</b>-->
+                <!--    </p>-->
+                <!--</div>-->
+                <div class="row ">
+                    <p style="width:100%;block"><b>
+                        قرار أعضاء لجنه البت المُشكله طبقاً للماده 35, 36 من لائحه المشتريات
+                    </b></p>
+                </div>
+                <p style="width:100%;block">
+                    <b>القرار:</b>
+                </p>
+                <div class="row ">
+
+                    <b class="text-center">---------------------------------------------------------------------------------------------------------------------------</b>
+                    <br/>
+                    <b class="text-center">---------------------------------------------------------------------------------------------------------------------------</b>
+                    <br/>
+                    <b class="text-center">---------------------------------------------------------------------------------------------------------------------------</b>
+                </div>
+                <br/>
+                <div class="row" >
+                    <div class="col-4"/>
+                    <div class="col-4">
+                        <b class="pull-right text-center" >
+                            ولسيادتكم جزيل الشكر,,,
+                        </b>
+                    </div>
+                </div>
+                <br/>
+                <div class="row"  >
+                    <div class="col-4 text-center">
+                        <strong>المشتريات والمخازن</strong>
+                    </div>
+                    <div class="col-4 text-center">
+                        <strong>إداره المراجعه</strong>
+                    </div>
+                    <div class="col-4 text-center">
+                        <strong>رئيس اللجنه</strong>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+    <template id="report_purchase_order_note">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-set="lang" t-value="user.partner_id.lang"/>
+                <t t-call="egymentors_inventory.report_purchase_order_note_doc" t-lang="lang"/>
+            </t>
+        </t>
+    </template>
+</odoo>

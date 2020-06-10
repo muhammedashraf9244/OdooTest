@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Purchase Requisition-->
+        <menuitem id="menu_purchase_requisition_pro_mgt_pr"
+                  groups="purchase.group_purchase_manager,purchase.group_purchase_user"
+                  sequence="5" parent="menu_purchase_request_main"
+                  action="purchase_requisition.action_purchase_requisition"/>
+
+        <record model="ir.ui.view" id="view_purchase_requisition_form_inherit">
+            <field name="name">purchase.requisition.form.inherit</field>
+            <field name="model">purchase.requisition</field>
+            <field name="inherit_id" ref="purchase_requisition.view_purchase_requisition_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='currency_id']" position="after">
+                    <label for="request_id"/>
+                    <div class="o_row">
+                        <field name="request_added" invisible="1"/>
+                        <label for="multi_requisition" string="Multi" class="oe_inline oe_edit_only"/>
+                        <field name="multi_requisition" class="oe_inline oe_edit_only"/>
+                        <field name="request_id" attrs="{'readonly':['|',('request_added','=',True),
+                        ('state','in',('open','done', 'cancel'))],
+                        'invisible':[('multi_requisition','=',True)]}" class="oe_inline"/>
+                        <field name="request_ids" attrs="{'readonly':['|',('request_added','=',True),
+                        ('state','in',('open','done', 'cancel'))],
+                        'invisible':[('multi_requisition','=',False)]}" widget="many2many_tags" class="oe_inline"/>
+
+                         <button name="load_pr_lines" string="Add PR Lines" type="object"
+                                class="oe_inline"  icon="fa-plus"
+                                attrs="{'invisible':['|',('state','in',('open','done', 'cancel')),
+                                ('request_added','=',True)]}"/>
+                        <button name="remove_pr_lines" string="Remove PR Lines" type="object"
+                                class="oe_inline oe_edit_only"  icon="fa-random"
+                                attrs="{'invisible':['|',('state','in',('open','done', 'cancel')),
+                                ('request_added','=',False)]}"/>
+                    </div>
+                </xpath>
+                <xpath expr="//field[@name='line_ids']/tree" position="inside">
+                    <field name="request_line_ids" optional="hide" widget="many2many_tags"/>
+                </xpath>
+
+            </field>
+        </record>
+    </data>
+</odoo>

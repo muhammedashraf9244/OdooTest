@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_purchase_order_check_doc">
+        <t t-call="web.external_layout">
+            <div class="page text-right" style="text-align: right !important;direction:rtl">
+                <div class="row">
+                    <div class="col-4"/>
+                    <div class="col-4">
+                        <h5 style="width:100%;block:">
+                            <b><u>طلب إستخراج شيك </u></b>
+                        </h5>
+                    </div>
+                </div>
+                <br/> <br/>
+                <div class="row">
+                    <div class="col-6 ">
+                        <p style="width:100%;block">
+                            <strong> القاهره فى: </strong>
+                            <span style="color:white">----------</span>
+                            <span>/</span>
+                            <span style="color:white">----------</span>
+                            <span>/</span>
+                            <span style="color:white">----------</span>
+                            <span>20</span>
+                        </p>
+                    </div>
+                    <div class="col-6 ">
+                        <p style="width:100%;block">
+                            <strong> الموضوع: </strong>
+                            <span>شيك بإسم/ </span>
+                            <span t-if="o.partner_id" t-esc="o.partner_id.name"/>
+                        </p>
+                    </div>
+                </div>
+                <br/>
+                <div class="row">
+                    <p style="width:100%;block">
+                        <b> بالإحاله إلى توريد رقم (</b>
+                        <span t-if="o.name" t-esc="o.name"/>
+                        <span>/2020</span>
+                        <b> ) بخصوص</b>
+                        <b style="color:white">-------------------</b>
+                    </p>
+                </div>
+                <div class="row">
+                    <p style="width:100%;block">
+                        <b>برجاء التكرم بالموافقه على إستخراج شيك بإسم/ </b>
+                        <span t-if="o.partner_id" t-esc="o.partner_id.name"/>
+                    </p>
+                </div>
+                <div class="row">
+                    <p style="width:100%;block">
+                        <b>بمبلغ (</b>
+                        <span t-esc="o.amount_to_text()"/>
+                        <b>) وذلك حسب البيان الأتى:-</b>
+                    </p>
+                </div>
+                <br/>
+                <table class="table table-sm o_main_table ">
+                    <thead>
+                        <tr class="text-center">
+                            <th><span>م.</span></th>
+                            <th><span>إسم الصنف</span></th>
+                            <th><span>الكميه</span></th>
+                            <th><span>السعر</span></th>
+                            <th><span>الإجمالى</span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-set="count" t-value="1"/>
+                        <tr t-foreach="o.order_line" t-as="line" >
+                            <td class="text-center"><span t-esc="count"/></td>
+                            <td class="text-right" style="text-align: right !important;">
+                                <span t-if="line.product_id"  t-esc="line.product_id.display_name"/>
+                            </td>
+                            <td class="text-center"><span t-esc="line.product_qty"/></td>
+                            <td class="text-center"><span t-esc="line.price_unit"/></td>
+                            <td class="text-center"><span t-esc="line.price_total"/></td>
+                            <t t-set="count" t-value="count+1"/>
+                        </tr>
+                    </tbody>
+                </table>
+                <div id="total" class="row justify-content-end">
+                    <div class="col-12 ">
+                        <table class="table table-sm">
+                            <tr class="border-black">
+                                <td name="td_subtotal_label"><strong>الإجمالى</strong></td>
+                                <td>
+                                    <t t-set="amount_before_discount"
+                                       t-value="o.amount_untaxed + o.lines_discount_amount"/>
+                                    <span t-esc="amount_before_discount"
+                                          t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                                </td>
+                            </tr>
+                            <tr t-if="o.lines_discount_amount &gt; 0">
+                                <td  name="td_taxes_label">خصومات السطور</td>
+                                <td>
+                                    <span t-field="o.lines_discount_amount"
+                                          t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td  name="td_taxes_label">الخصم الإجمالى</td>
+                                <td>
+                                    <span t-field="o.discount_amount"
+                                          t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                                </td>
+                            </tr>
+                            <tr class="border-black">
+                                <td name="td_subtotal_label"><strong>الإجمالى بعد الخصم</strong></td>
+                                <td>
+                                    <t t-set="amount_after_discount"
+                                       t-value="o.amount_untaxed - o.discount_amount"/>
+                                    <span t-esc="amount_after_discount"
+                                          t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                                </td>
+                            </tr>
+                            <t  t-foreach="o.purchase_taxes()" t-as="tax">
+                                <tr class="border-black">
+                                    <td name="td_taxes_label">
+                                        <span t-esc="tax['tax_name']"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="tax['tax_amount']"
+                                              t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                                    </td>
+                                </tr>
+                            </t>
+
+                            <tr class="border-black o_total">
+                                <td name="td_amount_total_label"><strong>إجمالى المستحق</strong></td>
+                                <td>
+                                    <span t-esc="o.amount_total" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                                    [<b t-esc="o.amount_to_text()"/>]
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <br/>
+                <div class="row">
+                    <div class="col-4"/>
+                    <div class="col-4">
+                        <b class="pull-right text-center">
+                            وتفضلوا سيادتكم بقبول فائق الإحترام,,,
+                        </b>
+                    </div>
+                </div>
+                <br/><br/>
+                <div class="row">
+                    <div class="col-4 text-center">
+                        <b>المشتريات والمخازن</b>
+                    </div>
+                    <div class="col-4 text-center">
+                        <b>الشئون الفنيه</b>
+                    </div>
+                    <div class="col-4 text-center">
+                        <b>مراجعه ماليه</b>
+                    </div>
+
+                </div>
+                <br/><br/>
+
+            </div>
+        </t>
+    </template>
+    <template id="report_purchase_order_check">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-set="lang" t-value="user.partner_id.lang"/>
+                <t t-call="egymentors_inventory.report_purchase_order_check_doc" t-lang="lang"/>
+            </t>
+        </t>
+    </template>
+</odoo>

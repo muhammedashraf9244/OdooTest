@@ -1,0 +1,1112 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* egymentors_inventory
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-04-13 21:27+0000\n"
+"PO-Revision-Date: 2020-04-13 23:45+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: ar\n"
+"X-Generator: Poedit 2.3\n"
+
+#. module: egymentors_inventory
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_order_check_doc
+msgid ""
+"<b class=\"pull-right text-center\">\n"
+"                            وتفضلوا سيادتكم بقبول فائق الإحترام,,,\n"
+"                        </b>"
+msgstr ""
+
+#. module: egymentors_inventory
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_order_note_doc
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_request_doc
+msgid ""
+"<b class=\"pull-right text-center\">\n"
+"                            ولسيادتكم جزيل الشكر,,,\n"
+"                        </b>"
+msgstr ""
+
+#. module: egymentors_inventory
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_request_doc
+msgid ""
+"<b class=\"text-center\">\n"
+"                            بعد التحيه,,,\n"
+"                        </b>"
+msgstr ""
+
+#. module: egymentors_inventory
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_order_note_doc
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_requisition_price_doc
+msgid ""
+"<b>\n"
+"                            تحيه طيبه وبعد,,,\n"
+"                        </b>"
+msgstr ""
+
+#. module: egymentors_inventory
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_order_check_doc
+msgid ""
+"<b> بالإحاله إلى توريد رقم (</b>\n"
+"                        <b style=\"color:white\">-------------------</b>\n"
+"                        <b> /2020) بخصوص</b>\n"
+"                        <b style=\"color:white\">-------------------</b>"
+msgstr ""
+
+#. module: egymentors_inventory
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_request_doc
+msgid ""
+"<b> بعد الكشف على الماكينه رقم (</b>\n"
+"                            <b style=\"color:white"
+"\">---------------------------------------------------------------------------------"
+"</b>\n"
+"                            <b> ) تبين الأتى:-</b>"
+msgstr ""
+
+#. module: egymentors_inventory
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_order_check_doc
+msgid "<b>) وذلك حسب البيان الأتى:-</b>"
+msgstr ""
+
+#. module: egymentors_inventory
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_order_note_doc
+msgid ""
+"<b>1-</b>\n"
+"                        <b style=\"color:white"
+"\">-------------------------------</b>\n"
+"                        <b>إداره المشروعات</b>"
+msgstr ""
+
+#. module: egymentors_inventory
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_order_note_doc
+msgid ""
+"<b>2-</b>\n"
+"                        <b style=\"color:white"
+"\">-------------------------------</b>\n"
+"                        <b>المندوب المال</b>"
+msgstr ""
+
+#. module: egymentors_inventory
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_order_note_doc
+msgid ""
+"<b>3-</b>\n"
+"                        <b style=\"color:white"
+"\">-------------------------------</b>\n"
+"                        <b>شئون فنيه</b>"
+msgstr ""
+
+#. module: egymentors_inventory
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_requisition_price_doc
+msgid "<b><u>إعضاء لجنه البحث فى السوق المحلى:</u></b>"
+msgstr ""
+
+#. module: egymentors_inventory
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_requisition_price_doc
+msgid "<b><u>شروط العرض:</u></b>"
+msgstr ""
+
+#. module: egymentors_inventory
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_requisition_price_doc
+msgid "<b><u>ضريبه القيمه المضافه:</u></b>"
+msgstr ""
+
+#. module: egymentors_inventory
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_requisition_price_doc
+msgid "<b><u>طريقه الدفع:</u></b>"
+msgstr ""
+
+#. module: egymentors_inventory
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_requisition_price_doc
+msgid "<b><u>مده الإرتباط:</u></b>"
+msgstr ""
+
+#. module: egymentors_inventory
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_requisition_price_doc
+msgid "<b><u>مده التوريد:</u></b>"
+msgstr ""
+
+#. module: egymentors_inventory
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_requisition_price_doc
+msgid "<b><u>مكان الإستلام:</u></b>"
+msgstr ""
+
+#. module: egymentors_inventory
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_order_note_doc
+msgid ""
+"<b>السيد المهندس/</b>\n"
+"                            رئيس الشئون الفنيه"
+msgstr ""
+
+#. module: egymentors_inventory
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_order_check_doc
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_requisition_price_doc
+msgid "<b>الشئون الفنيه</b>"
+msgstr ""
+
+#. module: egymentors_inventory
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_order_note_doc
+msgid "<b>القرار:</b>"
+msgstr ""
+
+#. module: egymentors_inventory
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_order_check_doc
+msgid "<b>المشتريات والمخازن</b>"
+msgstr ""
+
+#. module: egymentors_inventory
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_requisition_price_doc
+msgid "<b>المندوب المالى</b>"
+msgstr ""
+
+#. module: egymentors_inventory
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_order_note_doc
+msgid ""
+"<b>بالإحاله إلى طلب شراء رقم (</b>\n"
+"                        <span style=\"color:white\">----------------</"
+"span>\n"
+"                        <b> ) بتاريخ</b>\n"
+"                        <span style=\"color:white"
+"\">----------------------------</span>\n"
+"                        <b>من </b>"
+msgstr ""
+
+#. module: egymentors_inventory
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_order_check_doc
+msgid "<b>برجاء التكرم بالموافقه على إستخراج شيك بإسم/ </b>"
+msgstr ""
+
+#. module: egymentors_inventory
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_order_check_doc
+msgid "<b>بمبلغ (</b>"
+msgstr ""
+
+#. module: egymentors_inventory
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_order_check_doc
+msgid "<b>مراجعه ماليه</b>"
+msgstr ""
+
+#. module: egymentors_inventory
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_request_doc
+msgid "<b>ملاحظات:</b>"
+msgstr ""
+
+#. module: egymentors_inventory
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_requisition_price_doc
+msgid "<b>مندوب المشتريات</b>"
+msgstr ""
+
+#. module: egymentors_inventory
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.purchase_request_form
+msgid "<span class=\"o_form_label\">Purchase Request </span>"
+msgstr ""
+
+#. module: egymentors_inventory
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_order_note_doc
+msgid "<span> بسعر </span>"
+msgstr ""
+
+#. module: egymentors_inventory
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_order_check_doc
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_request_doc
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_requisition_price_doc
+msgid "<span>إسم الصنف</span>"
+msgstr ""
+
+#. module: egymentors_inventory
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_order_check_doc
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_requisition_price_doc
+msgid "<span>الإجمالى</span>"
+msgstr ""
+
+#. module: egymentors_inventory
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_order_check_doc
+msgid "<span>الخصم(%)</span>"
+msgstr ""
+
+#. module: egymentors_inventory
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_order_check_doc
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_request_doc
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_requisition_price_doc
+msgid "<span>الكميه</span>"
+msgstr ""
+
+#. module: egymentors_inventory
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_requisition_price_doc
+msgid "<span>الوحده</span>"
+msgstr ""
+
+#. module: egymentors_inventory
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_order_check_doc
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_requisition_price_doc
+msgid "<span>سعر الوحده</span>"
+msgstr ""
+
+#. module: egymentors_inventory
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_order_note_doc
+msgid "<span>ضريبه القيمه المضافه = </span>"
+msgstr ""
+
+#. module: egymentors_inventory
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_order_note_doc
+msgid "<span>ليصبح إجمالى السعر =  </span>"
+msgstr ""
+
+#. module: egymentors_inventory
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_order_note_doc
+msgid "<span>ليصبح إجمالى السعر بعد الضريبه =  </span>"
+msgstr ""
+
+#. module: egymentors_inventory
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_request_doc
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_requisition_price_doc
+msgid "<span>ملاحظات</span>"
+msgstr ""
+
+#. module: egymentors_inventory
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_order_note_doc
+msgid ""
+"<span>وقامت اللجنه بالبحث فى السوق المحلى وعمل عروض اسعار من شركه</span>"
+msgstr ""
+
+#. module: egymentors_inventory
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_request_doc
+msgid "<strong> التاريخ</strong>"
+msgstr ""
+
+#. module: egymentors_inventory
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_order_check_doc
+msgid ""
+"<strong> القاهره فى: </strong>\n"
+"                            <span style=\"color:white\">-----</span>\n"
+"                            <span>/</span>\n"
+"                            <span style=\"color:white\">---</span>\n"
+"                            <span>/</span>\n"
+"                            <span style=\"color:white\">-----</span>\n"
+"                            <span>20</span>"
+msgstr ""
+
+#. module: egymentors_inventory
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_order_check_doc
+msgid ""
+"<strong> الموضوع: </strong>\n"
+"                            <span>شيك بإسم/ </span>"
+msgstr ""
+
+#. module: egymentors_inventory
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_order_check_doc
+msgid "<strong><u>طلب إستخراج شيك </u></strong>"
+msgstr ""
+
+#. module: egymentors_inventory
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_order_check_doc
+msgid "<strong>إجمالى المستحق</strong>"
+msgstr ""
+
+#. module: egymentors_inventory
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_order_note_doc
+msgid "<strong>إداره المراجعه</strong>"
+msgstr ""
+
+#. module: egymentors_inventory
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_order_check_doc
+msgid "<strong>الإجمالى بعد الخصم</strong>"
+msgstr ""
+
+#. module: egymentors_inventory
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_order_check_doc
+msgid "<strong>الإجمالى</strong>"
+msgstr ""
+
+#. module: egymentors_inventory
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_order_note_doc
+msgid "<strong>المشتريات والمخازن</strong>"
+msgstr ""
+
+#. module: egymentors_inventory
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_request_doc
+msgid "<strong>رئيس الشئون الفنيه</strong>"
+msgstr ""
+
+#. module: egymentors_inventory
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_order_note_doc
+msgid "<strong>رئيس اللجنه</strong>"
+msgstr ""
+
+#. module: egymentors_inventory
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_request_doc
+msgid "<strong>رقم طلب الشراء</strong>"
+msgstr ""
+
+#. module: egymentors_inventory
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_request_doc
+msgid "<strong>مدير الورشه</strong>"
+msgstr ""
+
+#. module: egymentors_inventory
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_request_doc
+msgid "<strong>مسئول الفحص</strong>"
+msgstr ""
+
+#. module: egymentors_inventory
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_request_doc
+msgid "<strong>مسئول المخزن</strong>"
+msgstr ""
+
+#. module: egymentors_inventory
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_request_doc
+msgid "<strong>مهندس القسم</strong>"
+msgstr ""
+
+#. module: egymentors_inventory
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_request_doc
+msgid "<strong>مهندس الورشه</strong>"
+msgstr ""
+
+#. module: egymentors_inventory
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_requisition_price_doc
+msgid "<u><strong> التاريخ: </strong></u>"
+msgstr ""
+
+#. module: egymentors_inventory
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_requisition_price_doc
+msgid "<u><strong> الساده شركه: </strong></u>"
+msgstr ""
+
+#. module: egymentors_inventory
+#: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_order_line__accepted
+msgid "Accepted"
+msgstr "مقبول"
+
+#. module: egymentors_inventory
+#: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_request__access_warning
+msgid "Access warning"
+msgstr "خطأ"
+
+#. module: egymentors_inventory
+#: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_request__message_needaction
+msgid "Action Needed"
+msgstr "الإجراء مطلوب"
+
+#. module: egymentors_inventory
+#: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_request__activity_ids
+msgid "Activities"
+msgstr "الأنشطة"
+
+#. module: egymentors_inventory
+#: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_request__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr ""
+
+#. module: egymentors_inventory
+#: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_request__activity_state
+msgid "Activity State"
+msgstr "الحاله"
+
+#. module: egymentors_inventory
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.purchase_order_form_inherit
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.view_purchase_requisition_form_inherit
+msgid "Add PR Lines"
+msgstr "إضافه سطور طلب شراء جديده"
+
+#. module: egymentors_inventory
+#: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_request__message_attachment_count
+msgid "Attachment Count"
+msgstr "عدد المرفقات"
+
+#. module: egymentors_inventory
+#: model:res.groups,name:egymentors_inventory.group_purchase_request_audit
+msgid "Audit"
+msgstr "مراجعه الحسابات"
+
+#. module: egymentors_inventory
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.purchase_request_form
+msgid "Audit Approve"
+msgstr "موافقه مراجعه الحسابات"
+
+#. module: egymentors_inventory
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.purchase_request_form
+msgid "Cancel"
+msgstr "إلغاء"
+
+#. module: egymentors_inventory
+#: model:ir.model.fields.selection,name:egymentors_inventory.selection__purchase_request__state__cancel
+#: model:ir.model.fields.selection,name:egymentors_inventory.selection__purchase_requisition__request_state__cancel
+msgid "Cancelled"
+msgstr "لاغى"
+
+#. module: egymentors_inventory
+#: code:addons/egymentors_inventory/models/purchase_order_changes.py:0
+#, python-format
+msgid "Cannot delete a purchase order line which is in state '%s'."
+msgstr "لا يمكن حذف بند أمر توريد في حالة '%s'."
+
+#. module: egymentors_inventory
+#: model:ir.model.fields,help:egymentors_inventory.field_purchase_order__request_id
+#: model:ir.model.fields,help:egymentors_inventory.field_purchase_requisition__request_id
+msgid "Choose Confirmed request and load it's lines on PO"
+msgstr "إختار طلب توريد تم الموافقه عليه لاضافته فى السطور"
+
+#. module: egymentors_inventory
+#: model:ir.model.fields,field_description:egymentors_inventory.field_stock_inventory__ref
+msgid "Code"
+msgstr ""
+
+#. module: egymentors_inventory
+#: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_request__company_id
+msgid "Company"
+msgstr "الشركه"
+
+#. module: egymentors_inventory
+#: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_request__date_approve
+msgid "Confirmation Date"
+msgstr "تاريخ التأكيد"
+
+#. module: egymentors_inventory
+#: model_terms:ir.actions.act_window,help:egymentors_inventory.act_purchase_request
+msgid "Create a Purchase request"
+msgstr "إنشاء طلب شراء"
+
+#. module: egymentors_inventory
+#: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_request__create_uid
+#: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_request_department__create_uid
+#: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_request_line__create_uid
+msgid "Created by"
+msgstr "إنشي بواسطه"
+
+#. module: egymentors_inventory
+#: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_request__create_date
+#: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_request_department__create_date
+#: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_request_line__create_date
+msgid "Created on"
+msgstr "انشئ فى"
+
+#. module: egymentors_inventory
+#: model:ir.model,name:egymentors_inventory.model_res_currency
+#: model:ir.model.fields,field_description:egymentors_inventory.field_res_currency__name
+msgid "Currency"
+msgstr "العملة"
+
+#. module: egymentors_inventory
+#: model:ir.model.fields,help:egymentors_inventory.field_res_currency__name
+msgid "Currency Code (ISO 4217)"
+msgstr "رمز العملة (ISO 4217)"
+
+#. module: egymentors_inventory
+#: model:ir.model.fields,field_description:egymentors_inventory.field_res_currency__currency_submit_label
+msgid "Currency Submit Label"
+msgstr "العمله"
+
+#. module: egymentors_inventory
+#: model:ir.model.fields,field_description:egymentors_inventory.field_res_currency__currency_unit_label
+msgid "Currency Unit"
+msgstr "وحدة العملة"
+
+#. module: egymentors_inventory
+#: model:ir.model.fields,help:egymentors_inventory.field_res_currency__currency_unit_label
+msgid "Currency Unit Name"
+msgstr "اسم وحدة العملة"
+
+#. module: egymentors_inventory
+#: model:ir.model.fields,help:egymentors_inventory.field_purchase_request__access_url
+msgid "Customer Portal URL"
+msgstr ""
+
+#. module: egymentors_inventory
+#: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_request_department__name
+msgid "Department"
+msgstr "القسم"
+
+#. module: egymentors_inventory
+#: model:ir.model.fields,help:egymentors_inventory.field_purchase_request__date_request
+msgid ""
+"Depicts the date where the Quotation should be validated and converted into "
+"a purchase order."
+msgstr ""
+
+#. module: egymentors_inventory
+#: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_request__display_name
+#: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_request_department__display_name
+#: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_request_line__display_name
+#: model:ir.model.fields,field_description:egymentors_inventory.field_report_egymentors_inventory_report_purchase_requisition__display_name
+msgid "Display Name"
+msgstr "الاسم"
+
+#. module: egymentors_inventory
+#: model:ir.model.fields.selection,name:egymentors_inventory.selection__purchase_request__state__done
+#: model:ir.model.fields.selection,name:egymentors_inventory.selection__purchase_requisition__request_state__done
+msgid "Done"
+msgstr "تم"
+
+#. module: egymentors_inventory
+#: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_request__message_follower_ids
+msgid "Followers"
+msgstr ""
+
+#. module: egymentors_inventory
+#: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_request__message_channel_ids
+msgid "Followers (Channels)"
+msgstr ""
+
+#. module: egymentors_inventory
+#: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_request__message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
+
+#. module: egymentors_inventory
+#: model:ir.module.category,description:egymentors_inventory.module_category_operations_purchase_request
+msgid "Helps you manage purchase request users."
+msgstr ""
+
+#. module: egymentors_inventory
+#: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_request__id
+#: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_request_department__id
+#: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_request_line__id
+#: model:ir.model.fields,field_description:egymentors_inventory.field_report_egymentors_inventory_report_purchase_requisition__id
+msgid "ID"
+msgstr ""
+
+#. module: egymentors_inventory
+#: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_request__activity_exception_icon
+msgid "Icon"
+msgstr ""
+
+#. module: egymentors_inventory
+#: model:ir.model.fields,help:egymentors_inventory.field_purchase_request__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr ""
+
+#. module: egymentors_inventory
+#: model:ir.model.fields,help:egymentors_inventory.field_purchase_request__message_needaction
+#: model:ir.model.fields,help:egymentors_inventory.field_purchase_request__message_unread
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: egymentors_inventory
+#: model:ir.model.fields,help:egymentors_inventory.field_purchase_request__message_has_error
+#: model:ir.model.fields,help:egymentors_inventory.field_purchase_request__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: egymentors_inventory
+#: model:ir.model,name:egymentors_inventory.model_stock_inventory
+msgid "Inventory"
+msgstr "الجرد"
+
+#. module: egymentors_inventory
+#: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_request__message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: egymentors_inventory
+#: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_request____last_update
+#: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_request_department____last_update
+#: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_request_line____last_update
+#: model:ir.model.fields,field_description:egymentors_inventory.field_report_egymentors_inventory_report_purchase_requisition____last_update
+msgid "Last Modified on"
+msgstr "آخر تعديل في"
+
+#. module: egymentors_inventory
+#: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_request__write_uid
+#: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_request_department__write_uid
+#: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_request_line__write_uid
+msgid "Last Updated by"
+msgstr "آخر تحديث بواسطة"
+
+#. module: egymentors_inventory
+#: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_request__write_date
+#: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_request_department__write_date
+#: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_request_line__write_date
+msgid "Last Updated on"
+msgstr "آخر تحديث في"
+
+#. module: egymentors_inventory
+#: model:ir.model.fields.selection,name:egymentors_inventory.selection__purchase_request__state__locked
+#: model:ir.model.fields.selection,name:egymentors_inventory.selection__purchase_requisition__request_state__locked
+msgid "Locked"
+msgstr "مغلق"
+
+#. module: egymentors_inventory
+#: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_request__message_main_attachment_id
+msgid "Main Attachment"
+msgstr ""
+
+#. module: egymentors_inventory
+#: model:res.groups,name:egymentors_inventory.group_purchase_request_manager
+msgid "Manager"
+msgstr "المدير"
+
+#. module: egymentors_inventory
+#: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_request__message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: egymentors_inventory
+#: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_request__message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: egymentors_inventory
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.purchase_order_form_inherit
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.view_purchase_requisition_form_inherit
+msgid "Multi"
+msgstr "متعدد"
+
+#. module: egymentors_inventory
+#: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_order__multi_requisition
+#: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_requisition__multi_requisition
+msgid "Multi Requests"
+msgstr ""
+
+#. module: egymentors_inventory
+#: code:addons/egymentors_inventory/models/stock_inventory_changes.py:0
+#, python-format
+msgid "New"
+msgstr "جديد"
+
+#. module: egymentors_inventory
+#: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_request__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr ""
+
+#. module: egymentors_inventory
+#: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_request__activity_summary
+msgid "Next Activity Summary"
+msgstr ""
+
+#. module: egymentors_inventory
+#: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_request__activity_type_id
+msgid "Next Activity Type"
+msgstr ""
+
+#. module: egymentors_inventory
+#: code:addons/egymentors_inventory/models/purchase_order_changes.py:0
+#: code:addons/egymentors_inventory/models/purchase_requisition_changes.py:0
+#, python-format
+msgid "No Request To load"
+msgstr "لا يوجد اى طلبات لاضافتها"
+
+#. module: egymentors_inventory
+#: code:addons/egymentors_inventory/models/purchase_order_changes.py:0
+#: code:addons/egymentors_inventory/models/purchase_requisition_changes.py:0
+#, python-format
+msgid "No Request To remove"
+msgstr "لا يوجد اى طلبات لحذفها"
+
+#. module: egymentors_inventory
+#: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_request_line__note
+msgid "Note"
+msgstr "الملاحظات"
+
+#. module: egymentors_inventory
+#: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_request__message_needaction_counter
+msgid "Number of Actions"
+msgstr "عدد الاوامر"
+
+#. module: egymentors_inventory
+#: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_request__message_has_error_counter
+msgid "Number of errors"
+msgstr "عدد الأخطاء"
+
+#. module: egymentors_inventory
+#: model:ir.model.fields,help:egymentors_inventory.field_purchase_request__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr ""
+
+#. module: egymentors_inventory
+#: model:ir.model.fields,help:egymentors_inventory.field_purchase_request__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: egymentors_inventory
+#: model:ir.model.fields,help:egymentors_inventory.field_purchase_request__message_unread_counter
+msgid "Number of unread messages"
+msgstr ""
+
+#. module: egymentors_inventory
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.purchase_request_form
+msgid "Other Information"
+msgstr "معلومات اخرى"
+
+#. module: egymentors_inventory
+#: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_request__access_url
+msgid "Portal Access URL"
+msgstr ""
+
+#. module: egymentors_inventory
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.purchase_request_form
+msgid "Print"
+msgstr "طباعه"
+
+#. module: egymentors_inventory
+#: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_request_line__product_id
+msgid "Product"
+msgstr "المنتج"
+
+#. module: egymentors_inventory
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.purchase_request_form
+msgid "Products"
+msgstr "المنتجات"
+
+#. module: egymentors_inventory
+#: model:ir.ui.menu,name:egymentors_inventory.menu_purchase_request_main
+msgid "Purchase"
+msgstr "المشتريات"
+
+#. module: egymentors_inventory
+#: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_request__requisition_id
+msgid "Purchase Agreement"
+msgstr "إتفاق الشراء"
+
+#. module: egymentors_inventory
+#: model:ir.ui.menu,name:egymentors_inventory.menu_purchase_requisition_pro_mgt_pr
+msgid "Purchase Agreements"
+msgstr "إتفاقيات الشراء"
+
+#. module: egymentors_inventory
+#: model:ir.model,name:egymentors_inventory.model_purchase_order
+#: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_request__purchase_order_id
+msgid "Purchase Order"
+msgstr "أمر توريد"
+
+#. module: egymentors_inventory
+#: model:ir.model,name:egymentors_inventory.model_purchase_order_line
+msgid "Purchase Order Line"
+msgstr "بند أمر التوريد"
+
+#. module: egymentors_inventory
+#: model:ir.ui.menu,name:egymentors_inventory.menu_purchase_form_action_pr
+msgid "Purchase Orders"
+msgstr "اوامر التوريد"
+
+#. module: egymentors_inventory
+#: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_request__user_id
+msgid "Purchase Representative"
+msgstr "إتفاق الشراء"
+
+#. module: egymentors_inventory
+#: model:ir.actions.act_window,name:egymentors_inventory.act_purchase_request
+#: model:ir.actions.report,name:egymentors_inventory.purchase_request_report
+#: model:ir.model,name:egymentors_inventory.model_purchase_request
+#: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_order__request_id
+#: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_requisition__request_id
+#: model:ir.module.category,name:egymentors_inventory.module_category_operations_purchase_request
+#: model:ir.ui.menu,name:egymentors_inventory.menu_purchase_request
+#: model:ir.ui.menu,name:egymentors_inventory.menu_purchase_request_root
+msgid "Purchase Request"
+msgstr "طلب الشراء"
+
+#. module: egymentors_inventory
+#: model:ir.model,name:egymentors_inventory.model_purchase_request_department
+msgid "Purchase Request Department"
+msgstr "قسم طلب الشراء"
+
+#. module: egymentors_inventory
+#: model:ir.model,name:egymentors_inventory.model_purchase_request_line
+msgid "Purchase Request Line"
+msgstr "سطر طلب الشراء"
+
+#. module: egymentors_inventory
+#: model:ir.model,name:egymentors_inventory.model_purchase_requisition
+msgid "Purchase Requisition"
+msgstr "طلب الشراء"
+
+#. module: egymentors_inventory
+#: model:ir.model,name:egymentors_inventory.model_purchase_requisition_line
+msgid "Purchase Requisition Line"
+msgstr "بند طلب الشراء"
+
+#. module: egymentors_inventory
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.purchase_request_form
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.purchase_request_view_tree
+msgid "Purchase request"
+msgstr "طلب الشراء"
+
+#. module: egymentors_inventory
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.purchase_request_form
+msgid "Purchase request Lines"
+msgstr "سطر طلب الشراء"
+
+#. module: egymentors_inventory
+#: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_request_line__product_qty
+msgid "Quantity"
+msgstr "الكميه"
+
+#. module: egymentors_inventory
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.purchase_request_view_tree
+msgid "Reference"
+msgstr "المرجع"
+
+#. module: egymentors_inventory
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.purchase_order_form_inherit
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.view_purchase_requisition_form_inherit
+msgid "Remove PR Lines"
+msgstr "حذف السطور"
+
+#. module: egymentors_inventory
+#: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_order__request_ids
+#: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_requisition__request_ids
+msgid "Request"
+msgstr "طلب"
+
+#. module: egymentors_inventory
+#: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_order__request_added
+#: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_requisition__request_added
+msgid "Request Added"
+msgstr "تم إضافه طلب الشراء"
+
+#. module: egymentors_inventory
+#: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_request__date_request
+msgid "Request Date"
+msgstr "تاريخ الطلب"
+
+#. module: egymentors_inventory
+#: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_requisition_line__request_line_ids
+msgid "Request Line"
+msgstr "سطر الطلب"
+
+#. module: egymentors_inventory
+#: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_order_line__request_line_ids
+#: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_request__request_line
+msgid "Request Lines"
+msgstr "سطور الطلب"
+
+#. module: egymentors_inventory
+#: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_request__name
+#: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_request_line__request_id
+msgid "Request Reference"
+msgstr "مرجع الطلب"
+
+#. module: egymentors_inventory
+#: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_requisition__request_state
+msgid "Request State"
+msgstr "حاله الطلب"
+
+#. module: egymentors_inventory
+#: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_request__req_dep_id
+msgid "Requested Department"
+msgstr "قسم الطلب"
+
+#. module: egymentors_inventory
+#: model:ir.ui.menu,name:egymentors_inventory.menu_purchase_rfq_pr
+msgid "Requests for Quotation"
+msgstr "الطلبات"
+
+#. module: egymentors_inventory
+#: model:ir.actions.report,name:egymentors_inventory.purchase_requisition_xlsx_report
+msgid "Requisition"
+msgstr ""
+
+#. module: egymentors_inventory
+#: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_order_line__requisition_line_id
+msgid "Requisition Line"
+msgstr ""
+
+#. module: egymentors_inventory
+#: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_request__activity_user_id
+msgid "Responsible User"
+msgstr "المسؤل"
+
+#. module: egymentors_inventory
+#: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_request__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr ""
+
+#. module: egymentors_inventory
+#: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_request__access_token
+msgid "Security Token"
+msgstr ""
+
+#. module: egymentors_inventory
+#: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_request_line__sequence
+msgid "Sequence"
+msgstr ""
+
+#. module: egymentors_inventory
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.purchase_request_form
+msgid "Set to Draft"
+msgstr "اعاده إلى مسوده"
+
+#. module: egymentors_inventory
+#: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_request__state
+#: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_request_line__state
+msgid "Status"
+msgstr "الحاله"
+
+#. module: egymentors_inventory
+#: model:ir.model.fields,help:egymentors_inventory.field_purchase_request__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+
+#. module: egymentors_inventory
+#: model:res.groups,name:egymentors_inventory.group_purchase_request_technical
+msgid "Technical"
+msgstr "تقنى"
+
+#. module: egymentors_inventory
+#: model:ir.model.fields.selection,name:egymentors_inventory.selection__purchase_request__state__first
+#: model:ir.model.fields.selection,name:egymentors_inventory.selection__purchase_requisition__request_state__first
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.purchase_request_form
+msgid "Technical Approve"
+msgstr "موافقه التقني"
+
+#. module: egymentors_inventory
+#: model_terms:ir.actions.act_window,help:egymentors_inventory.act_purchase_request
+msgid ""
+"The quotation contains the history of the discussion\n"
+"                you had with your vendor."
+msgstr ""
+
+#. module: egymentors_inventory
+#: code:addons/egymentors_inventory/models/purchase_order_changes.py:0
+#, python-format
+msgid "This Request %s Used Before in Order %s"
+msgstr ""
+
+#. module: egymentors_inventory
+#: code:addons/egymentors_inventory/models/purchase_requisition_changes.py:0
+#, python-format
+msgid "This Request %s Used Before in requisition %s"
+msgstr ""
+
+#. module: egymentors_inventory
+#: model:ir.model.fields,help:egymentors_inventory.field_purchase_request__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr ""
+
+#. module: egymentors_inventory
+#: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_request__message_unread
+msgid "Unread Messages"
+msgstr ""
+
+#. module: egymentors_inventory
+#: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_request__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr ""
+
+#. module: egymentors_inventory
+#: model:res.groups,name:egymentors_inventory.group_purchase_request_user
+msgid "User"
+msgstr "مستخدم"
+
+#. module: egymentors_inventory
+#: code:addons/egymentors_inventory/models/purchase_requisition_changes.py:0
+#, python-format
+msgid ""
+"User Changed Qty for this product [%s]\n"
+" Please Make it's qty bigger than Requisition request line qty:%s"
+msgstr ""
+
+#. module: egymentors_inventory
+#: code:addons/egymentors_inventory/models/purchase_order_changes.py:0
+#, python-format
+msgid ""
+"User Changed Qty for this product [%s]\n"
+" Please Make it's qty bigger than purchase request line qty:%s"
+msgstr ""
+
+#. module: egymentors_inventory
+#: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_request__website_message_ids
+msgid "Website Messages"
+msgstr ""
+
+#. module: egymentors_inventory
+#: model:ir.model.fields,help:egymentors_inventory.field_purchase_request__website_message_ids
+msgid "Website communication history"
+msgstr ""
+
+#. module: egymentors_inventory
+#: code:addons/egymentors_inventory/models/purchase_order_changes.py:0
+#, python-format
+msgid ""
+"You Can't accept this line: %s\n"
+"It's already accepted on Quotation[%s] from vendor: %s."
+msgstr ""
+
+#. module: egymentors_inventory
+#: code:addons/egymentors_inventory/models/purchase_request.py:0
+#, python-format
+msgid "You should add line at least to approve request!!!"
+msgstr ""
+
+#. module: egymentors_inventory
+#: model:ir.model.fields.selection,name:egymentors_inventory.selection__purchase_request__state__draft
+#: model:ir.model.fields.selection,name:egymentors_inventory.selection__purchase_requisition__request_state__draft
+msgid "draft"
+msgstr "مبدئي"
+
+#. module: egymentors_inventory
+#: model:ir.model,name:egymentors_inventory.model_report_egymentors_inventory_report_purchase_requisition
+msgid "report.egymentors_inventory.report_purchase_requisition"
+msgstr ""
+
+#. module: egymentors_inventory
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_request_doc
+msgid "السيد المهندس/ رئيس الشئون الفنيه"
+msgstr ""
+
+#. module: egymentors_inventory
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_requisition_price_doc
+msgid "برجاء التكرم بموافاتنا بعرض اسعاركم للمهمات الأتيه:"
+msgstr ""
+
+#. module: egymentors_inventory
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_order_check_doc
+msgid "خصومات"
+msgstr ""
+
+#. module: egymentors_inventory
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_requisition_price_doc
+msgid "رقم الطلب("
+msgstr ""
+
+#. module: egymentors_inventory
+#: model:ir.actions.report,name:egymentors_inventory.purchase_order_check_report
+msgid "طلب إستخراج شيك"
+msgstr ""
+
+#. module: egymentors_inventory
+#: model:ir.actions.report,name:egymentors_inventory.purchase_requisition_price_report
+msgid "طلب عرض سعر"
+msgstr ""
+
+#. module: egymentors_inventory
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_order_note_doc
+msgid "قرار أعضاء لجنه البت المُشكله طبقاً للماده 35, 36 من لائحه المشتريات"
+msgstr ""
+
+#. module: egymentors_inventory
+#: model:ir.actions.report,name:egymentors_inventory.purchase_order_note_report
+msgid "مذكره شراء"
+msgstr ""
+
+#. module: egymentors_inventory
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_order_note_doc
+msgid "مذكره شراء رقم("
+msgstr ""
+
+#. module: egymentors_inventory
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_order_note_doc
+msgid "نحيط علم سيادتكم علماً بأنه قامت اللجنه المشكله من كلا من:"
+msgstr ""
+
+#. module: egymentors_inventory
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_request_doc
+msgid "نرجو من سيادتكم الموافقه على توفير قطع الغيار التاليه:"
+msgstr ""
+
+#. module: egymentors_inventory
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_request_doc
+msgid ""
+"والأمر مرفوع لسيادتكم للتكرم بالتنبيه بسرعه إتخاذ اللازم لعدم تعطل العمل"
+msgstr ""

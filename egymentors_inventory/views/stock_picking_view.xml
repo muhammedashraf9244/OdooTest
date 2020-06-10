@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_picking_form_inherit" model="ir.ui.view">
+        <field name="name">stock.picking.form.inherit</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='button_validate'][1]" position="replace">
+                <field name="generate_seq" invisible="1"/>
+                <button name="button_validate"  class="oe_highlight" groups="stock.group_stock_user"
+                        attrs="{'invisible': ['|','|', ('state', 'in', ('waiting','confirmed')),
+                        ('show_validate', '=', False),('generate_seq', '=', True)]}" string="Validate" type="object" />
+
+            </xpath>
+            <xpath expr="//button[@name='action_confirm']" position="replace">
+                <button name="action_confirm" attrs="{'invisible': ['|',('show_mark_as_todo', '=', False),('generate_seq','=',False)]}"
+                        string="Mark as Todo" type="object" class="oe_highlight" groups="base.group_user"/>
+
+            </xpath>
+            <xpath expr="//button[@name='button_validate'][2]" position="replace">
+                <button name="button_validate" attrs="{'invisible': ['|','|', ('state', 'not in',
+                     ('waiting', 'confirmed')), ('show_validate', '=', False), ('generate_seq', '=', True)]}" string="Validate"
+                        type="object" groups="stock.group_stock_user" class="o_btn_validate"/>
+                <button name="act_generate_seq" attrs="{'invisible': ['|', ('state', '!=','draft'),
+                 ('generate_seq','=',False)]}" string="Generate Seq" type="object"
+                        class="o_btn_validate" groups="stock.group_stock_user"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

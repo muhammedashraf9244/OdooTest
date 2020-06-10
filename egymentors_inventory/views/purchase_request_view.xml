@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Purchase Request-->
+        <menuitem name="Purchase Request"
+                  id="menu_purchase_request_root"
+                  groups="group_purchase_request_user,group_purchase_request_audit,group_purchase_request_technical,group_purchase_request_manager"
+                  web_icon="egymentors_inventory,static/description/pr_icon.png"
+                  sequence="26"/>
+        <record id="purchase_request_view_tree" model="ir.ui.view">
+            <field name="name">purchase.request.view.tree</field>
+            <field name="model">purchase.request</field>
+            <field name="arch" type="xml">
+                <tree decoration-bf="state=='draft'" decoration-muted="state in ('cancel','locked')"
+                      decoration-info="state=='first'" decoration-success="state=='done'"
+                      string="Purchase request" class="o_purchase_request">
+                    <field name="name" string="Reference" readonly="1"/>
+                    <field name="date_request" invisible="not context.get('quotation_only', False)" optional="show"/>
+                    <field name="date_approve" invisible="context.get('quotation_only', False)" optional="show"/>
+                    <field name="purchase_order_id" optional="show"/>
+                    <field name="user_id" optional="show"/>
+                    <field name="state" optional="show"/>
+                </tree>
+            </field>
+        </record>
+        <record id="purchase_request_form" model="ir.ui.view">
+            <field name="name">purchase.request.form</field>
+            <field name="model">purchase.request</field>
+            <field name="arch" type="xml">
+                <form string="Purchase request" class="o_purchase_request">
+                    <header>
+                        <button name="print_request" string="Print" type="object" states="done" class="oe_highlight" groups="base.group_user"/>
+                        <button name="button_first_confirm" type="object" states="draft"
+                                string="Audit Approve" class="oe_highlight"
+                                groups="egymentors_inventory.group_purchase_request_audit
+                                ,egymentors_inventory.group_purchase_request_manager"/>
+                        <button name="button_second_confirm" type="object" states="first"
+                                string="Technical Approve" class="oe_highlight"
+                                groups="egymentors_inventory.group_purchase_request_technical,
+                                egymentors_inventory.group_purchase_request_manager"/>
+                        <button name="button_draft" states="cancel" string="Set to Draft" type="object"
+                                groups="egymentors_inventory.group_purchase_request_user,
+                                egymentors_inventory.group_purchase_request_manager"/>
+                        <button name="button_cancel" states="draft,first" string="Cancel" type="object" />
+                        <button name="print_request" string="Print" type="object" states="first,draft" groups="base.group_user"/>
+                        <button name="button_open" string="Re-open" type="object" states="locked"
+                                groups="egymentors_inventory.group_purchase_request_user,
+                                egymentors_inventory.group_purchase_request_manager"/>
+
+                        <field name="state" widget="statusbar" statusbar_visible="draft,first,done" readonly="1"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <span class="o_form_label">Purchase Request </span>
+                            <h1>
+                                <field name="name" readonly="1"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="req_dep_id" />
+                                <field name="company_id" groups="base.group_multi_company" options="{'no_create': True}"/>
+                            </group>
+                            <group>
+                                <field name="date_request" attrs="{'invisible': [('state','=','purchase')]}"/>
+                                <field name="date_approve" attrs="{'invisible': [('state','!=','purchase')]}"/>
+                                <field name="purchase_order_id" attrs="{'invisible': [('purchase_order_id','=',False)]}"/>
+                                <field name="requisition_id" attrs="{'invisible': [('requisition_id','=',False)]}"/>
+<!--                                <field name="notes" style="direction:rtl"/>-->
+                            </group>
+                        </group>
+                        <label for="notes"/>
+                        <field name="notes" style="direction:rtl"/>
+                        <notebook>
+                            <page string="Products">
+                                <field name="request_line"
+                                       attrs="{'readonly': [('state', 'in', ('done', 'cancel'))]}"
+                                       context="{'default_req_dep_id':req_dep_id, 'company_id':company_id,
+                                        'date_request':date_request}">
+                                    <tree string="Purchase request Lines" editable="bottom">
+                                        <field name="sequence" widget="handle"/>
+                                        <field name="product_id"
+                                               attrs="{'readonly': [('state', 'in', ('done', 'cancel'))]}"
+                                               force_save="1" domain="[('purchase_ok', '=', True), '|', ('company_id', '=', False), ('company_id', '=', parent.company_id)]"/>
+                                        <field name="product_qty"/>
+                                        <field name="note" />
+                                        <field name="state" optional="hide"/>
+                                        <field name="req_dep_id" optional="hide"/>
+                                        <field name="company_id" optional="hide"/>
+                                        <field name="date_request" optional="hide"/>
+                                    </tree>
+                                </field>
+                                <div class="oe_clear"/>
+                            </page>
+                            <page string="Other Information" name="purchase_delivery_invoice">
+                                <group>
+                                    <group name="other_info">
+                                        <field name="user_id"/>
+                                    </group>
+                                </group>
+                            </page>
+                        </notebook>
+
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="activity_ids" widget="mail_activity"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+        <record id="purchase_request_filter_view" model="ir.ui.view">
+            <field name="name">purchase.request.filter.view</field>
+            <field name="model">purchase.request</field>
+            <field name="arch" type="xml">
+                <search string="Purchase Request">
+                    <field name="name"/>
+                    <filter string="Locked" name="locked" domain="[('state','=','locked')]" />
+                    <filter string="Open" name="unlocked" domain="[('state','!=','locked')]" />
+                    <group expand="0" string="Group By">
+                        <filter string="State" name="state" domain="[]" context="{'group_by':'state'}"/>
+                        <filter string="Requested Department" name="req_dep_id" domain="[]" context="{'group_by':'req_dep_id'}"/>
+                        <filter string="Company" name="company_id" domain="[]" context="{'group_by':'company_id'}"/>
+                        <filter string="Date(month)" name="date_request" context="{'group_by':'date_request:month'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+        <record id="act_purchase_request" model="ir.actions.act_window">
+            <field name="name">Purchase Request</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">purchase.request</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="purchase_request_view_tree"/>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+            <!--            <field name="search_view_id" ref="view_purchase_request_filter"/>-->
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create a Purchase request
+                </p><p>
+                The quotation contains the history of the discussion
+                you had with your vendor.
+            </p>
+            </field>
+        </record>
+        <menuitem id="menu_purchase_request_main"
+                  name="Purchase"
+                  parent="menu_purchase_request_root"
+                  sequence="1"/>
+        <menuitem action="act_purchase_request" id="menu_purchase_request"
+                  parent="menu_purchase_request_main"
+                  sequence="1"/>
+        <!-- Purchase Request Line-->
+        <record id="purchase_request_line_tree_view" model="ir.ui.view">
+            <field name="name">purchase.request.line.tree</field>
+            <field name="model">purchase.request.line</field>
+            <field name="arch" type="xml">
+                <tree decoration-bf="state=='draft'" decoration-muted="state in ('cancel','locked')"
+                      decoration-info="state=='first'" decoration-success="state=='done'"
+                      string="Purchase request Lines" class="o_purchase_request">
+                    <field name="sequence" widget="handle"/>
+                    <field name="request_id"/>
+                    <field name="product_id"/>
+                    <field name="product_qty"/>
+                    <field name="state" optional="show"/>
+                    <field name="note" />
+                    <field name="req_dep_id" optional="hide"/>
+                    <field name="company_id" optional="hide"/>
+                </tree>
+            </field>
+        </record>
+        <record id="purchase_request_line_view_pivot" model="ir.ui.view">
+            <field name="name">purchase.request.line.pivot</field>
+            <field name="model">purchase.request.line</field>
+            <field name="arch" type="xml">
+                <pivot string="Purchase Request Analysis">
+                    <field name="product_id"/>
+                    <field name="product_qty" type="measure"/>
+                </pivot>
+            </field>
+        </record>
+        <record id="purchase_request_filter_line_view" model="ir.ui.view">
+            <field name="name">purchase.request.line.filter.view</field>
+            <field name="model">purchase.request.line</field>
+            <field name="arch" type="xml">
+                <search string="Purchase Request Line">
+                    <field name="product_id"/>
+                    <field name="request_id"/>
+                    <filter string="Locked" name="locked" domain="[('state','=','locked')]" />
+                    <filter string="Open" name="unlocked" domain="[('state','!=','locked')]" />
+                    <group expand="0" string="Group By">
+                        <filter string="Request" name="request" domain="[]" context="{'group_by':'request_id'}"/>
+                        <filter string="Product" name="product" domain="[]" context="{'group_by':'product_id'}"/>
+                        <separator/>
+                        <filter string="State" name="state" domain="[]" context="{'group_by':'state'}"/>
+                        <filter string="Requested Department" name="req_dep_id" domain="[]" context="{'group_by':'req_dep_id'}"/>
+                        <filter string="Company" name="company_id" domain="[]" context="{'group_by':'company_id'}"/>
+                        <filter string="Date(month)" name="date_request" context="{'group_by':'date_request:month'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+        <record id="act_purchase_request_line" model="ir.actions.act_window">
+            <field name="name">Purchase Request Line</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">purchase.request.line</field>
+            <field name="view_mode">tree,pivot</field>
+            <field name="domain">[]</field>
+            <field name="context">{'search_default_request':1}</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create a Purchase request Line
+                </p><p>
+                The quotation contains the history of the discussion
+                you had with your vendor.
+            </p>
+            </field>
+        </record>
+        <menuitem action="act_purchase_request_line" id="menu_purchase_request_line"
+                  parent="menu_purchase_request_main"
+                  sequence="2"/>
+    </data>
+</odoo>

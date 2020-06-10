@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_purchase_requisition_price_doc">
+        <t t-call="web.external_layout">
+            <div class="page text-right" style="text-align: right !important;direction:rtl" >
+                <div class="row">
+                    <div class="col-4"/>
+                    <div class="col-4 text-center">
+                        <p style="width:100%;block">
+                            <strong>رقم الطلب(
+                                <span t-if="o.name" t-field="o.name"/>
+                                )</strong>
+                        </p>
+                    </div>
+                </div>
+                <div class="row ">
+                    <p style="width:100%;block"><u><strong> التاريخ: </strong></u></p>
+                </div>
+                <div class="row ">
+                    <p style="width:100%;block"><u><strong> الساده شركه: </strong></u></p>
+                </div>
+                <br/>
+                <div class="row">
+                    <div class="col-4"/>
+                    <div class="col-4 text-center">
+                        <b>
+                            تحيه طيبه وبعد,,,
+                        </b>
+                    </div>
+                </div>
+                <br/><br/>
+                <div class="row ">
+                    <p style="width:100%;block">
+                        برجاء التكرم بموافاتنا بعرض اسعاركم للمهمات الأتيه:
+                    </p>
+                </div>
+                <table class="table table-sm o_main_table ">
+                    <thead>
+                        <tr  class="text-center">
+                            <th><span>م.</span></th>
+                            <th><span>إسم الصنف</span></th>
+                            <th><span>الكميه</span></th>
+                            <th><span>الوحده</span></th>
+                            <th><span>سعر الوحده</span></th>
+                            <th><span>الإجمالى</span></th>
+                            <th><span>ملاحظات</span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-set="count" t-value="1"/>
+                        <tr t-foreach="o.line_ids" t-as="line" >
+                            <td class="text-center"><span t-esc="count"/></td>
+                            <td  class="text-right" style="text-align: right !important;">
+                                <span t-if="line.product_id" t-esc="line.product_id.display_name"/>
+                            </td>
+                            <td class="text-center"><span t-esc="line.product_qty"/></td>
+                            <td class="text-center"><span t-if="line.product_uom_id" t-esc="line.product_uom_id.name"/></td>
+                            <td class="text-center"/>
+                            <td class="text-center"/>
+                            <td class="text-center"/>
+                            <t t-set="count" t-value="count+1"/>
+                        </tr>
+                    </tbody>
+                </table>
+                <br/>
+                <div class="row ">
+                    <p style="width:100%;block">
+                        <b><u>شروط العرض:</u></b>
+                    </p>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <p style="width:100%;block">
+                            <b><u>مده التوريد:</u></b>
+                        </p>
+                        <p style="width:100%;block">
+                            <b><u>ضريبه القيمه المضافه:</u></b>
+                        </p>
+                        <p style="width:100%;block">
+                            <b><u>طريقه الدفع:</u></b>
+                        </p>
+                    </div>
+                    <div class="col-6">
+                        <p style="width:100%;block">
+                            <b><u>مده الإرتباط:</u></b>
+                        </p>
+                        <p style="width:100%;block">
+                            <b><u>مكان الإستلام:</u></b>
+                        </p>
+
+                    </div>
+                </div>
+                <br/>
+                <div class="row ">
+                        <p style="width:100%;block">
+                            <b><u>إعضاء لجنه البحث فى السوق المحلى:</u></b>
+                        </p>
+                </div>
+                <div class="row" >
+                    <div class="col-4 text-center">
+                        <b>مندوب المشتريات</b>
+                    </div>
+                    <div class="col-4 text-center">
+                        <b>المندوب المالى</b>
+                    </div>
+                    <div class="col-4 text-center">
+                        <b>الشئون الفنيه</b>
+                    </div>
+
+                </div>
+                <br/><br/>
+
+            </div>
+        </t>
+    </template>
+    <template id="report_purchase_requisition_price">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-set="lang" t-value="user.partner_id.lang"/>
+                <t t-call="egymentors_inventory.report_purchase_requisition_price_doc" t-lang="lang"/>
+            </t>
+        </t>
+    </template>
+</odoo>

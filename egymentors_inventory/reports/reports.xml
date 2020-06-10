@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <report
+                id="purchase_request_report"
+                model="purchase.request"
+                report_type="qweb-pdf"
+                string="Purchase Request"
+                menu="False"
+                name="egymentors_inventory.report_purchase_request"
+                file="egymentors_inventory.report_purchase_request"
+        />
+        <report
+                id="purchase_requisition_xlsx_report"
+                model="purchase.requisition"
+                string="تفريغ عروض الأسعار"
+                report_type="xlsx"
+                name="egymentors_inventory.report_purchase_requisition"
+                file="egymentors_inventory.report_purchase_requisition"
+                attachment_use="False"
+        />
+        <report
+                id="purchase_requisition_price_report"
+                model="purchase.requisition"
+                string="طلب عرض سعر"
+                report_type="qweb-pdf"
+                name="egymentors_inventory.report_purchase_requisition_price"
+                file="egymentors_inventory.report_purchase_requisition_price"
+                attachment_use="False"
+        />
+        <report
+                id="purchase_order_check_report"
+                model="purchase.order"
+                string="طلب إستخراج شيك"
+                report_type="qweb-pdf"
+                name="egymentors_inventory.report_purchase_order_check"
+                file="egymentors_inventory.report_purchase_order_check"
+                attachment_use="False"
+        /><report
+                id="purchase_order_note_report"
+                model="purchase.order"
+                string="مذكره شراء"
+                report_type="qweb-pdf"
+                name="egymentors_inventory.report_purchase_order_note"
+                file="egymentors_inventory.report_purchase_order_note"
+                attachment_use="False"
+        />
+
+    </data>
+</odoo>

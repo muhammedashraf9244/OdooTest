@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="view_inventory_form_inherit" model="ir.ui.view">
+            <field name="name">stock.inventory.form.inherit</field>
+            <field name="model">stock.inventory</field>
+            <field name="inherit_id" ref="stock.view_inventory_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//h1" position="after">
+                    <h3 attrs="{'invisible':[('state','!=', 'done')]}"><field name="ref" readonly="1"/></h3>
+                </xpath>
+
+            </field>
+        </record>
+        <record id="view_inventory_tree_inherit" model="ir.ui.view">
+            <field name="name">stock.inventory.tree.inherit</field>
+            <field name="model">stock.inventory</field>
+            <field name="inherit_id" ref="stock.view_inventory_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="before">
+                    <field name="ref" />
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

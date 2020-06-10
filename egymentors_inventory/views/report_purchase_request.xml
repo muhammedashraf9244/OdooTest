@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_purchase_request_doc">
+        <t t-call="web.external_layout">
+<!--            <t t-set="o" t-value="o.with_context(lang=lang)" />-->
+            <div class="page text-right" style="text-align: right !important;direction:rtl">
+                <div class="row" >
+                    <div class="col-4" t-if="o.name" name="date">
+                        <strong>رقم طلب الشراء</strong>
+                        <span class="m-0" t-field="o.name"/>
+                    </div>
+                    <div class="col-4" t-if="o.date_request" name="period_month">
+                        <strong> التاريخ</strong>
+                        <span class="m-0" t-field="o.date_request"/>
+                    </div>
+                </div>
+                <br/>
+                <div class="row" >
+                    <div class="col-8" >
+                        <b style="width:100%;block">
+                            السيد المهندس/ رئيس الشئون الفنيه
+                        </b>
+                    </div>
+                </div>
+                <br/>
+                <div class="row" >
+                    <div class="col-4"/>
+                    <div class="col-4">
+                        <b class="text-center" >
+                            بعد التحيه,,,
+                        </b>
+                    </div>
+                </div>
+                <br/>
+                <br/>
+                <div class="row" >
+                    <div class="col-12" >
+                        <p style="width:100%;block" t-esc="o.notes"/>
+<!--<p style="width:100%;block">-->
+<!--    <b> بعد الكشف على الماكينه رقم (</b>-->
+<!--    <b style="color:white">-&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;</b>-->
+<!--    <b> ) تبين الأتى:-</b>-->
+<!--</p>-->
+<!--<b class="text-center">-&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;</b>-->
+<!--<br/><br/>-->
+<!--<b class="text-center">-&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;</b>-->
+                    </div>
+                </div>
+                <br/>
+                <div class="row" >
+                    <div class="col-8" >
+                        <p style="width:100%;block">
+                            نرجو من سيادتكم الموافقه على توفير قطع الغيار التاليه:
+                        </p>
+                    </div>
+                </div>
+                <table class="table table-sm o_main_table" name="bonus_line_table" >
+                    <thead>
+                        <tr  >
+                            <!-- TODO: remove in master -->
+                            <th class="text-center"><span>م.</span></th>
+                            <th class="text-center"><span>إسم الصنف</span></th>
+                            <th class="text-center"><span>الكميه</span></th>
+                            <th class="text-center"><span>ملاحظات</span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-set="count" t-value="1"/>
+                        <tr t-foreach="o.request_line" t-as="line"  >
+                            <td class="text-center"><span t-esc="count"/></td>
+                            <td class="text-right" style="text-align: right !important;">
+                                <span t-if="line.product_id" t-esc="line.product_id.display_name"/>
+                            </td>
+                            <td class="text-center"><span t-esc="line.product_qty"/></td>
+                            <td class="text-right" style="text-align: right !important;">
+                                <span t-esc="line.note"/>
+                            </td>
+                            <t t-set="count" t-value="count+1"/>
+                        </tr>
+                    </tbody>
+                </table>
+                <br/>
+                <div class="row" >
+                    <div class="col-11">
+                        <p style="width:100%;block">
+                            والأمر مرفوع لسيادتكم للتكرم بالتنبيه بسرعه إتخاذ اللازم لعدم تعطل العمل
+                        </p>
+                    </div>
+                </div>
+                <br/>
+                <div class="row"  >
+                    <div class="col-12">
+                        <p style="width:100%;block">
+                            <b>ملاحظات:</b>
+                        </p>
+                        <b class="text-center">---------------------------------------------------------------------------------------------------------------------------------------------------</b>
+                        <br/><br/>
+                        <b class="text-center">---------------------------------------------------------------------------------------------------------------------------------------------------</b>
+                        <br/><br/>
+                        <b class="text-center">---------------------------------------------------------------------------------------------------------------------------------------------------</b>
+                    </div>
+                </div>
+                <br/><br/>
+                <div class="row" >
+                    <div class="col-4"/>
+                    <div class="col-4">
+                        <b class="pull-right text-center" >
+                            ولسيادتكم جزيل الشكر,,,
+                        </b>
+                    </div>
+                </div>
+                <br/>
+                <br/>
+                <div class="row"  >
+                    <div class="col-3 text-center">
+                        <strong>مسئول الفحص</strong>
+                    </div>
+                    <div class="col-2 text-center">
+                        <strong>مهندس القسم</strong>
+                    </div>
+                    <div class="col-3 text-center">
+                        <strong>مسئول المخزن</strong>
+                    </div>
+                    <div class="col-2 text-center">
+                        <strong>مهندس الورشه</strong>
+                    </div>
+                    <div class="col-2 text-center">
+                        <strong>مدير الورشه</strong>
+                    </div>
+                </div>
+                <br/><br/>
+                <div class="row text-center"  >
+                    <div class="col-4"/>
+                    <div class="col-4">
+                        <strong>رئيس الشئون الفنيه</strong>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+    <template id="report_purchase_request">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-set="lang" t-value="user.partner_id.lang"/>
+                <t t-call="egymentors_inventory.report_purchase_request_doc" t-lang="lang"/>
+            </t>
+        </t>
+    </template>
+</odoo>
