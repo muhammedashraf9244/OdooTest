@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!--FX Number-->
+        <menuitem id="menu_fx_number_stock_action"
+                  parent="stock.menu_stock_config_settings"
+                  action="fx_number_action" sequence="4"/>
+
+        <!--Cancel Reason-->
+        <record model="ir.ui.view" id="view_cancel_reason_tree">
+            <field name="name">Cancel Reason</field>
+            <field name="model">cancel.reason</field>
+            <field name="arch" type="xml">
+                <tree string="Cancel Reasons" editable="bottom">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="action_cancel_reason">
+            <field name="name">Cancel Reason</field>
+            <field name="res_model">cancel.reason</field>
+            <field name="view_mode">tree</field>
+        </record>
+        <menuitem id="menu_cancel_reason"
+                  parent="stock.menu_stock_config_settings"
+                  name="Cancel Reasons"
+                  action="action_cancel_reason"
+                  sequence="200" groups="stock.group_stock_manager"/>
+
+        <!--Stock Picking-->
+        <record id="view_picking_form_inherit" model="ir.ui.view">
+            <field name="name">stock.picking.form.inherit</field>
+            <field name="model">stock.picking</field>
+            <field name="inherit_id" ref="stock.view_picking_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='owner_id']" position="after">
+                    <field name="vendor_receipt"/>
+                    <field name="cancel_reason_id" readonly="1" states="cancel"/>
+                    <!--                    <label for="fx_num_id"/>-->
+                    <!--                    <div class="o_row">-->
+                    <!--                        <field name="fx_added" invisible="1"/>-->
+                    <!--                        <field name="fx_num_id" class="oe_inline"/>-->
+                    <!--                        <button name="load_fx_lines" string="Load FX Lines" type="object"-->
+                    <!--                                class="oe_link oe_inline"  icon="fa-plus"-->
+                    <!--                                attrs="{'invisible':['|','|',('state','not in',('draft', 'waiting')),-->
+                    <!--                                ('fx_added','=', True),('fx_num_id','=', False)]}"/>-->
+                    <!--                    </div>-->
+                </xpath>
+                <xpath expr="//field[@name='move_ids_without_package']//tree" position="inside">
+                    <field name="pieces" optional="show"/>
+                    <field name="roll_number" optional="show"/>
+                    <field name="grade_id" optional="show"/>
+                </xpath>
+                <xpath expr="//field[@name='move_ids_without_package']//tree//field[@name='product_id']" position="after">
+                    <field name="fx_num_id"/>
+                    <field name="virtual_available"/>
+                </xpath>
+                <xpath expr="//button[@name='action_cancel']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//button[@name='action_cancel']" position="after">
+                    <button name="%(egymentors_purchase_fx.action_cancel_reason_wizard)d"
+                            string="Cancel" type="action"  attrs="{'invisible': ['|',
+                            ('state', 'not in', ('assigned', 'confirmed',
+                             'partially_available', 'draft', 'waiting')),
+                              ('is_locked', '=', False)]}"  groups="base.group_user" />
+                </xpath>
+            </field>
+        </record>
+        <!--        <record id="vpicktree_inherit" model="ir.ui.view">-->
+        <!--            <field name="name">stock.picking.tree.inherit</field>-->
+        <!--            <field name="model">stock.picking</field>-->
+        <!--            <field name="inherit_id" ref="stock.vpicktree"/>-->
+        <!--            <field name="arch" type="xml">-->
+        <!--                <xpath expr="//field[@name='name']" position="after">-->
+        <!--                    <field name="fx_num_id"/>-->
+        <!--                </xpath>-->
+        <!--            </field>-->
+        <!--        </record>-->
+        <record id="view_picking_internal_search_inherit" model="ir.ui.view">
+            <field name="name">stock.picking.internal.search</field>
+            <field name="model">stock.picking</field>
+            <field name="inherit_id" ref="stock.view_picking_internal_search"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group" position="inside">
+                    <filter string="Vendor Receipt" name="vendor_receipt" context="{'group_by': 'vendor_receipt'}"/>
+                    <!--                    <filter string="FX No." name="fx_num_id" context="{'group_by': 'fx_num_id'}"/>-->
+                </xpath>
+            </field>
+        </record>
+
+        <!--Inventory Part-->
+        <record id="view_inventory_form_inherit" model="ir.ui.view">
+            <field name="name">stock.inventory.form.inherit</field>
+            <field name="model">stock.inventory</field>
+            <field name="inherit_id" ref="stock.view_inventory_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//h1" position="after">
+                    <h3 attrs="{'invisible':[('state','!=', 'done')]}"><field name="ref" readonly="1"/></h3>
+                </xpath>
+
+            </field>
+        </record>
+        <record id="view_inventory_tree_inherit" model="ir.ui.view">
+            <field name="name">stock.inventory.tree.inherit</field>
+            <field name="model">stock.inventory</field>
+            <field name="inherit_id" ref="stock.view_inventory_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="before">
+                    <field name="ref" />
+                </xpath>
+            </field>
+        </record>
+
+        <!--Stock Patch Changes-->
+        <record id="stock_picking_batch_form_inherit" model="ir.ui.view">
+            <field name="name">stock.picking.batch.form.inherit</field>
+            <field name="model">stock.picking.batch</field>
+            <field name="inherit_id" ref="stock_picking_batch.stock_picking_batch_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//group" position="inside">
+                    <group>
+                        <field name="product_id"/>
+                    </group>
+                </xpath>
+
+            </field>
+        </record>
+        <record id="stock_picking_batch_tree_inherit" model="ir.ui.view">
+            <field name="name">stock.picking.batch.tree.inherit</field>
+            <field name="model">stock.picking.batch</field>
+            <field name="inherit_id" ref="stock_picking_batch.stock_picking_batch_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='activity_exception_decoration']" position="after">
+                    <field name="product_id" optional="hide"/>
+                </xpath>
+            </field>
+        </record>
+        <record id="stock_picking_batch_filter_inherit" model="ir.ui.view">
+            <field name="name">stock.picking.batch.filter.inherit</field>
+            <field name="model">stock.picking.batch</field>
+            <field name="inherit_id" ref="stock_picking_batch.stock_picking_batch_filter"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='user_id']" position="after">
+                    <field name="product_id"/>
+                </xpath>
+                <xpath expr="//group" position="before">
+                   <filter string="Product Filtered" name="product_id" domain="[('product_id', '!=', False)]"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

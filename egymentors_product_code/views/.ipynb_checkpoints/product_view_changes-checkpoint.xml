@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!--Template View-->
+        <record id="product_template_form_view_inherit" model="ir.ui.view">
+            <field name="name">product.template.common.form.inherit</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[@name='options']" position="before">
+                    <label class="oe_edit_only" for="style_field"/>
+                    <h4><field name="style_field" placeholder="e.g. 00000001"/></h4>
+                </xpath>
+                <xpath expr="//group[@name='group_lots_and_weight']" position="inside">
+                    <field name="branch_id"/>
+                </xpath>
+                <xpath expr="//notebook" position="inside">
+                    <page name="cloths_parameters" string="Cloths Parameters">
+                        <group>
+                            <group>
+                                <div class="o_row">
+                                    <field name="category_type" nolabel="1"
+                                           attrs="{'invisible':[('category_type','not in',('fabric','yarn','other'))]}"/>
+                                    <span attrs="{'invisible':[('category_type','not in',('fabric','yarn','other'))]}">
+                                        Parameters</span>
+                                </div>
+                            </group>
+                        </group>
+                        <group attrs="{'invisible':[('category_type','!=','fabric')]}">
+                            <group>
+                                <field name="texmar_weight" attrs="{'required':[('category_type','=','fabric')]}"/>
+                                <field name="texmar_width" attrs="{'required':[('category_type','=','fabric')]}"/>
+                                <field name="repeat_id" attrs="{'required':[('category_type','=','fabric')]}"/>
+                                <field name="composition_id" attrs="{'required':[('category_type','=','fabric')]}"/>
+                                <field name="landry_code_id"/>
+                                <field name="abrasion"/>
+                            </group>
+                            <group>
+                                <field name="category_id"/>
+                                <field name="sub_category_id"/>
+                                <field name="collection_id"/>
+                                <field name="manufacture_id"/>
+                                <field name="manufacture_type_id"/>
+                                <field name="fabric_type_id"/>
+                                <field name="usage_id"/>
+                            </group>
+                        </group>
+                        <group attrs="{'invisible':[('category_type','!=','yarn')]}">
+                            <group>
+                                <field name="texmar_color_id" attrs="{'required':[('category_type','=','yarn')]}"/>
+                                <field name="kind_id" attrs="{'required':[('category_type','=','yarn')]}"/>
+                                <field name="group_name_id" attrs="{'required':[('category_type','=','yarn')]}"/>
+                                <field name="group_code" attrs="{'required':[('category_type','=','yarn')]}"/>
+                            </group>
+                            <group>
+                                <field name="pant_id"/>
+                                <field name="pant_code"/>
+                                <field name="origin_id"/>
+                            </group>
+                        </group>
+                        <group attrs="{'invisible':[('category_type','!=','other')]}">
+                            <group>
+                                <field name="origin_id"/>
+                                <field name="under_testing_id"/>
+                            </group>
+                        </group>
+                    </page>
+                </xpath>
+
+            </field>
+        </record>
+        <!-- Variant View-->
+        <record id="product_variant_easy_edit_view_inherit" model="ir.ui.view">
+            <field name="name">product.product.view.form.easy.inherit</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_variant_easy_edit_view"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='product_template_attribute_value_ids']" position="before">
+                    <label class="oe_edit_only" for="style_field"/>
+                    <h4><field name="style_field" placeholder="e.g. 00000001"/></h4>
+                </xpath>
+                <xpath expr="//field[@name='default_code']" position="replace">
+                    <label for="default_code"/>
+                    <!--class="o_row"-->
+                    <div >
+                        <field name="branch_code" style="color:blue" readonly="1"/>
+                        <field name="category_code" style="color:red" readonly="1"/>
+                        <field name="style_code" style="color:green" readonly="1"/>
+                        <field name="color_code" style="color:gray" readonly="1"/>
+                        <field name="treatment_code" style="color:orange" readonly="1"/>
+                    </div>
+                    <field name="default_code" invisible="1"/>
+                </xpath>
+                <xpath expr="//group" position="after">
+                    <separator name="cloths_parameters" string="Cloths Parameters"/>
+                    <group>
+                        <group>
+                            <div class="o_row">
+                                <field name="category_type" nolabel="1"
+                                       attrs="{'invisible':[('category_type','not in',('fabric','yarn','other'))]}"/>
+                                <span attrs="{'invisible':[('category_type','not in',('fabric','yarn','other'))]}">
+                                    Parameters</span>
+                            </div>
+                        </group>
+                    </group>
+                    <group attrs="{'invisible':[('category_type','!=','fabric')]}">
+                        <group>
+                            <field name="texmar_weight" attrs="{'required':[('category_type','=','fabric')]}"/>
+                            <field name="texmar_width" attrs="{'required':[('category_type','=','fabric')]}"/>
+                            <field name="repeat_id" attrs="{'required':[('category_type','=','fabric')]}"/>
+                            <field name="composition_id" attrs="{'required':[('category_type','=','fabric')]}"/>
+                            <field name="landry_code_id"/>
+                            <field name="abrasion"/>
+                        </group>
+                        <group>
+                            <field name="category_id"/>
+                            <field name="sub_category_id"/>
+                            <field name="collection_id"/>
+                            <field name="manufacture_id"/>
+                            <field name="manufacture_type_id"/>
+                            <field name="fabric_type_id"/>
+                            <field name="usage_id"/>
+                        </group>
+                    </group>
+                    <group attrs="{'invisible':[('category_type','!=','yarn')]}">
+                        <group>
+                            <field name="texmar_color_id" attrs="{'required':[('category_type','=','yarn')]}"/>
+                            <field name="kind_id" attrs="{'required':[('category_type','=','yarn')]}"/>
+                            <field name="group_name_id" attrs="{'required':[('category_type','=','yarn')]}"/>
+                            <field name="group_code" attrs="{'required':[('category_type','=','yarn')]}"/>
+                        </group>
+                        <group>
+                            <field name="pant_id"/>
+                            <field name="pant_code"/>
+                            <field name="origin_id"/>
+                        </group>
+                    </group>
+                    <group attrs="{'invisible':[('category_type','!=','other')]}">
+                        <group>
+                            <field name="origin_id"/>
+                            <field name="under_testing_id"/>
+                        </group>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+        <!--Category View-->
+        <record id="product_category_form_view_inherit" model="ir.ui.view">
+            <field name="name">product.category.form.inherit</field>
+            <field name="model">product.category</field>
+            <field name="inherit_id" ref="product.product_category_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//h1" position="after">
+                    <label class="oe_edit_only" for="code"/>
+                    <h4><field name="code" placeholder="e.g. 01"/></h4>
+                </xpath>
+                <xpath expr="//field[@name='parent_id']" position="after">
+                    <field name="category_type" widget="radio"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

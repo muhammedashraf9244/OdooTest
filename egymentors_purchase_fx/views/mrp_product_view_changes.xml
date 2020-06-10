@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+       <!-- Inherit Form View to Modify it -->
+       <record id="mrp_production_form_view_inherit" model="ir.ui.view">
+           <field name="name">mrp.production.form.inherit</field>
+           <field name="model">mrp.production</field>
+           <field name="inherit_id" ref="mrp.mrp_production_form_view"/>
+           <field name="arch" type="xml">
+
+               <xpath expr="//field[@name='routing_id']" position="after">
+                   <field name="sale_line_id"/>
+               </xpath>
+
+           </field>
+       </record>
+
+    </data>
+</odoo>

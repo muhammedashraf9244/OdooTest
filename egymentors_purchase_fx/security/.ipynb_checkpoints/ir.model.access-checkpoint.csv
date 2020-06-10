@@ -1,0 +1,22 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_fx_number,fx.number.user,model_fx_number,purchase.group_purchase_user,1,1,1,1
+access_fx_number_manager,fx.number.manager,model_fx_number,purchase.group_purchase_manager,1,1,1,1
+access_fx_number_invoicing_payments,fx.number.invoice,model_fx_number,account.group_account_invoice,1,1,0,0
+access_fx_number_user,fx.number user,model_fx_number,stock.group_stock_user,1,1,1,1
+access_fx_number_manager,fx.number manager,model_fx_number,stock.group_stock_manager,1,1,1,1
+access_fx_number_portal,fx.number,model_fx_number,base.group_portal,1,0,0,0
+access_purchase_order_type,purchase.order.type.user,model_purchase_order_type,purchase.group_purchase_user,1,1,1,1
+access_purchase_order_type_manager,purchase.order.type.manager,model_purchase_order_type,purchase.group_purchase_manager,1,1,1,1
+access_purchase_order_type_invoicing_payments,purchase.order.type.invoice,model_purchase_order_type,account.group_account_invoice,1,1,0,0
+access_purchase_order_type_user,purchase.order.type user,model_purchase_order_type,stock.group_stock_user,1,1,1,1
+access_purchase_order_type_manager,purchase.order.type manager,model_purchase_order_type,stock.group_stock_manager,1,1,1,1
+access_purchase_order_type_portal,purchase.order.type,model_purchase_order_type,base.group_portal,1,0,0,0
+access_cancel_reason_user,cancel.reason user,model_cancel_reason,stock.group_stock_user,1,1,1,1
+access_cancel_reason_manager,cancel.reason manager,model_cancel_reason,stock.group_stock_manager,1,1,1,1
+access_cancel_reason_portal,cancel.reason,model_cancel_reason,base.group_portal,1,0,0,0
+access_stock_picking_filter_user,cancel.reason user,model_stock_picking_filter,stock.group_stock_user,1,1,1,1
+access_stock_picking_filter_manager,cancel.reason manager,model_stock_picking_filter,stock.group_stock_manager,1,1,1,1
+access_stock_picking_filter_portal,cancel.reason,model_stock_picking_filter,base.group_portal,1,0,0,0
+access_stock_move_grade_user,cancel.reason user,model_stock_move_grade,stock.group_stock_user,1,1,1,1
+access_stock_move_grade_manager,cancel.reason manager,model_stock_move_grade,stock.group_stock_manager,1,1,1,1
+access_stock_move_grade_portal,cancel.reason,model_stock_move_grade,base.group_portal,1,0,0,0

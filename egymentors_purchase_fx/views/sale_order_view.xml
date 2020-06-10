@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_order_form_inherit" model="ir.ui.view">
+            <field name="name">sale.order.form.inherit</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='order_line']//tree" position="inside">
+                    <field name="sample_date" optional="show"/>
+                    <field name="line_delivery_date" optional="show"/>
+                    <field name="approval_status" optional="show"/>
+                    <field name="line_status" optional="show"/>
+                </xpath>
+                <xpath expr="//field[@name='order_line']//tree" position="attributes">
+                    <attribute name="decoration-info">line_status == 'open'</attribute>
+                    <attribute name="decoration-success">line_status == 'closed'</attribute>
+                </xpath>
+                <xpath expr="//button[@name='action_view_invoice']" position="before">
+                    <field name="purchase_delivered" invisible="1"/>
+                    <field name="has_mto" invisible="1"/>
+                    <!--icon="fa-shopping-cart"-->
+                    <button type="object"
+                            name="action_view_delivered"
+                            class="oe_stat_button btn-success"
+                            string="PO Qty Delivered"
+                            style="color:green;"
+                            icon="fa-circle"
+                            attrs="{'invisible': ['|',('has_mto', '=', False),('purchase_delivered', '=', False)]}"
+                            groups="purchase.group_purchase_user">
+                    </button>
+                    <button type="object"
+                            name="action_view_delivered"
+                            style="color:red;"
+                            icon="fa-circle"
+                            class="btn-danger text-center"
+                            string="PO Qty Not Delivered"
+                            attrs="{'invisible': ['|',('has_mto', '=', False),('purchase_delivered', '=', True)]}"
+                            groups="purchase.group_purchase_user">
+                    </button>
+                </xpath>
+                <xpath expr="//header" position="inside">
+                    <button name="action_print" type="object"
+                            string="Print" class="oe_highlight"
+                            attrs="{'invisible': [('state', '=', 'draft')]}"/>
+                </xpath>
+                <xpath expr="//field[@name='date_order']" position="after">
+                    <field name="hide_cancel"
+                           groups="egymentors_purchase_fx.group_control_sol_cancel_button"/>
+                    <field name="stop_cancel_at" readonly="1"/>
+                </xpath>
+                <xpath expr="//button[@name='action_cancel']" position="replace">
+                    <button name="action_cancel"
+                            attrs="{'invisible': ['|',('hide_cancel','=', True),
+                            ('state','not in', ('draft','sent','sale'))]}"
+                            type="object" string="Cancel"/>
+                </xpath>
+                <xpath expr="//field[@name='client_order_ref']" position="replace"/>
+                <xpath expr="//field[@name='name']" position="replace">
+                    <div class="row">
+                        <field name="name" readonly="1"/>
+                        <span attrs="{'invisible': [('client_order_ref', '=', False)]}">/</span>
+                        <field name="client_order_ref" placeholder="Customer Reference" readonly="0"/>
+                    </div>
+                </xpath>
+
+
+            </field>
+        </record>
+        <record id="view_order_tree_quotation_inherit" model="ir.ui.view">
+            <field name="name">sale.order.tree.inherit</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_quotation_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="replace">
+                    <field name="name" string="Quotation Number" invisible="1"/>
+                    <field name="display_name" string="Quotation Number" />
+
+                </xpath>
+                <xpath expr="//field[@name='activity_exception_decoration']" position="after">
+                    <field name="order_status" readonly="1"/>
+                    <field name="hide_cancel" readonly="1"/>
+                </xpath>
+                <xpath expr="//tree" position="attributes">
+                    <attribute name="decoration-info">order_status == 'open'</attribute>
+                    <attribute name="decoration-success">order_status == 'closed'</attribute>
+                </xpath>
+
+            </field>
+        </record>
+        <record id="view_order_tree_inherit" model="ir.ui.view">
+            <field name="name">sale.order.tree.inherit</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="replace">
+                    <field name="name" string="Order Number" invisible="1"/>
+                    <field name="display_name" string="Order Number" />
+
+                </xpath>
+                <xpath expr="//field[@name='activity_exception_decoration']" position="after">
+                    <field name="order_status" readonly="1"/>
+                </xpath>
+                <xpath expr="//tree" position="attributes">
+                    <attribute name="decoration-info">order_status == 'open'</attribute>
+                    <attribute name="decoration-success">order_status == 'closed'</attribute>
+                </xpath>
+
+            </field>
+        </record>
+        <record id="sale_order_view_search_inherit" model="ir.ui.view">
+            <field name="name">sale.order.filter.inherit</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_sales_order_filter"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group" position="before">
+                    <filter name="open" string="Open" domain="[('order_status', '=', 'open')]"/>
+                    <filter name="closed" string="Closed" domain="[('order_status', '=', 'closed')]"/>
+                    <filter name="delivered" string="PO Qty Delivered" domain="[('has_mto', '=', True),('purchase_delivered', '=', True)]"/>
+                    <filter name="not_delivered" string="PO Qty Not Delivered" domain="[('has_mto', '=', True),('purchase_delivered', '=', False)]"/>
+                    <filter name="mto" string="Has MTO Products" domain="[('has_mto', '=', True)]"/>
+                    <filter name="cancel" string="Stopped Cancel" domain="[('hide_cancel', '=', True)]"/>
+                </xpath>
+                <xpath expr="//filter[@name='order_month']" position="after">
+                    <filter string="Order Status" name="order_status" domain="[]" context="{'group_by': 'order_status'}"/>
+                </xpath>
+
+            </field>
+        </record>
+        <!-- Sale Order Line-->
+        <record id="view_order_line_tree_inherit" model="ir.ui.view">
+            <field name="name">sale.order.line.tree.inherit</field>
+            <field name="model">sale.order.line</field>
+            <field name="inherit_id" ref="sale.view_order_line_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='price_subtotal']" position="after">
+                    <field name="sample_date" optional="show"/>
+                    <field name="line_delivery_date" optional="show"/>
+                    <field name="approval_status" optional="show"/>
+                    <field name="line_status" optional="show"/>
+                    <field name="is_cut"/>
+                </xpath>
+                <xpath expr="//tree" position="attributes">
+                    <attribute name="decoration-info">is_cut == False</attribute>
+                    <attribute name="decoration-success">is_cut == True</attribute>
+                </xpath>
+
+
+            </field>
+        </record>
+        <record id="fx_view_sales_order_line_filter_inherit" model="ir.ui.view">
+            <field name="name">sale.order.line.select.inherit</field>
+            <field name="model">sale.order.line</field>
+            <field name="inherit_id" ref="sale.view_sales_order_line_filter"/>
+            <field name="arch" type="xml">
+                <xpath expr="//filter[@name='my_sales_order_lines']" position="after">
+                    <filter name="cut" string="Cut" domain="[('is_cut','=',True)]"/>
+                    <filter name="not_cut" string="Un-Cut" domain="[('is_cut','=',False)]"/>
+                </xpath>
+                <xpath expr="//group" position="inside">
+                    <separator/>
+                    <filter name="line_status" string="Line Status" context="{'group_by':'line_status'}" />
+                    <filter name="approval_status" string="Approval Status" context="{'group_by':'approval_status'}" />
+                    <filter name="sample_date" string="Sample Date" context="{'group_by':'sample_date'}" />
+                    <filter name="line_delivery_date" string="Delivery Date" context="{'group_by':'line_delivery_date'}" />
+                </xpath>
+            </field>
+        </record>
+        <record id="action_sale_order_line" model="ir.actions.act_window">
+            <field name="name">Order Lines</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sale.order.line</field>
+            <field name="view_mode">tree,form,pivot,graph</field>
+            <field name="context">{'search_default_product': 1,'search_default_order': 1}</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create a new order line.
+                </p>
+            </field>
+        </record>
+        <menuitem id="menu_action_sale_order_line"  parent="stock.menu_stock_warehouse_mgmt"
+                  sequence="110" action="action_sale_order_line"/>
+
+        <record id="ir_action_set_cut" model="ir.actions.server">
+            <field name="name">Cut Order Lines</field>
+            <field name="type">ir.actions.server</field>
+            <field name="model_id" ref="model_sale_order_line"/>
+            <field name="state">code</field>
+            <field name="code">
+                if records:
+                action = records.cut_lines()
+            </field>
+            <field name="binding_model_id" ref="sale.model_sale_order_line"/>
+            <field name="binding_view_types">list,form</field>
+        </record>
+        <record id="ir_action_set_un_cut" model="ir.actions.server">
+            <field name="name">Un-Cut Order Lines</field>
+            <field name="type">ir.actions.server</field>
+            <field name="model_id" ref="model_sale_order_line"/>
+            <field name="state">code</field>
+            <field name="code">
+                if records:
+                action = records.un_cut_lines()
+            </field>
+            <field name="binding_model_id" ref="sale.model_sale_order_line"/>
+            <field name="binding_view_types">list,form</field>
+        </record>
+
+
+
+
+    </data>
+</odoo>

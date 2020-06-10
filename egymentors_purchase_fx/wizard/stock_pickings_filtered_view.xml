@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_stock_picking_filter_form" model="ir.ui.view">
+        <field name="name">Filter Pickings with Product</field>
+        <field name="model">stock.picking.filter</field>
+        <field name="arch" type="xml">
+            <form string="Filter By Product">
+                <p class="oe_grey">
+                    Choose the product to filtered with:
+                </p>
+                <group>
+                    <field name="product_id"/>
+                </group>
+                <footer>
+                    <button name="action_filter"
+                            string="Filter" type="object"
+                            class="oe_highlight"/>
+                    or
+                    <button string="Cancel" class="oe_link"
+                            special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record id="action_stock_picking_filter" model="ir.actions.act_window">
+        <field name="name">Filter Pickings with Product</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">stock.picking.filter</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_stock_picking_filter_form"/>
+        <field name="target">new</field>
+    </record>
+    <menuitem action="action_stock_picking_filter"
+              id="stock_picking_filter_menu"
+              parent="stock.menu_stock_warehouse_mgmt" sequence="8"/>
+
+</odoo>
